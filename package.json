@@ -1,0 +1,26 @@
+{
+  "name": "Heyteam",
+  "version": "1.0.0",
+  "description": "Automated tests for HeyTeam",
+  "author": "Lydia Arad",
+  "scripts": {
+    "test": "playwright test",
+    "test:headless": "playwright test --headed=false",
+    "test:debug": "PWDEBUG=1 playwright test",
+    "debug": "node --inspect-brk node_modules/.bin/playwright test",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "type": "module",
+  "devDependencies": {
+    "jest-allure2-reporter": "^1.2.1",
+    "jsdoc": "^4.0.2"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.36.0-alpha-jul-5-2023",
+    "axios": "^1.4.0",
+    "express": "4.18.2",
+    "moxios": "^0.4.0",
+    "playwright": "^1.35.1",
+    "winston": "^3.3.3"
+  }
+}

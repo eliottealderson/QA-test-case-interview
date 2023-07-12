@@ -1,0 +1,10 @@
+{
+  "validCredentials": {
+    "email": "julesvernie@gmx.fr",
+    "password": "wQLB7TcSBhLfo"
+  },
+  "invalidCredentials": {
+    "email": "invaliduser@example.com",
+    "password": "invalidpassword"
+  }
+}
