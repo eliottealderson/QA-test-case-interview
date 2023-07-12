@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Utilisation de Jest avec Playwright - HeyTeam Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Utilisation de Jest avec Playwright";
+        var mkdocs_page_input_path = "UsingJestWithPlaywright.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> HeyTeam Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CodeOrganization/">Organisation du code</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PageObjectArchitecture/">Utilisation de l'architecture Page Object</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TestDataManagement/">Gestion des données de test</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../EnvironmentConfigManagement/">Configuration et gestion des environnements</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AssertionsUsage/">Utilisation des assertions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DependenciesManagement/">Gestion des dépendances</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DetailedReportsLogs/">Rapports et Journaux détaillés</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NetworkDependenciesManagement/">Gestion des dépendances réseau</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../RunningTests/">Exécution des tests</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Utilisation de Jest avec Playwright</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilisation-de-jest-avec-playwright_1">Utilisation de Jest avec Playwright</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ecriture-de-tests">Écriture de tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-des-tests">Exécution des tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ressources-supplementaires">Ressources supplémentaires</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../LoginTestDetails/">Analyse du code et bonnes pratiques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../project-info-doc/">Utilisation des scripts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Script-checkDependencies-doc/">Utilisation des scripts suite</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DebugPlaywright/">Configuration du débogage Playwright</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../test-management/">Test management</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">HeyTeam Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Utilisation de Jest avec Playwright</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="utilisation-de-jest-avec-playwright">Utilisation de Jest avec Playwright</h1>
+<p><code>Playwright</code> est une excellente bibliothèque pour les tests de navigateur automatisés, 
+tandis que <code>Jest</code> est un framework de test populaire pour JavaScript. 
+Utilisés ensemble, ils offrent une solution puissante pour tester votre application Web.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Pour utiliser <code>Jest</code> avec <code>Playwright</code>, vous aurez besoin de quelques dépendances supplémentaires. 
+Assurez-vous d'avoir installé les packages suivants :</p>
+<pre><code class="language-json">{
+  &quot;devDependencies&quot;: {
+    &quot;jest&quot;: &quot;^27.5.1&quot;,
+    &quot;jest-playwright-preset&quot;: &quot;^1.7.0&quot;,
+    &quot;playwright&quot;: &quot;^1.35.1&quot;
+  }
+}
+</code></pre>
+<h2 id="utilisation-de-jest-avec-playwright_1">Utilisation de Jest avec Playwright</h2>
+<p>Pour utiliser Jest avec Playwright, vous devez configurer Jest pour utiliser le "preset" jest-playwright. 
+Vous pouvez le faire en ajoutant la ligne suivante à votre fichier de configuration Jest :</p>
+<pre><code class="language-json">{
+&quot;preset&quot;: &quot;jest-playwright-preset&quot;
+}
+</code></pre>
+<h2 id="ecriture-de-tests">Écriture de tests</h2>
+<p>Avec <code>Jest</code> et <code>Playwright</code>, vous pouvez écrire des tests qui interagissent avec votre application Web de la même manière
+qu'un utilisateur le ferait. Voici un exemple de test qui se connecte à une application Web et vérifie que l'utilisateur
+est bien connecté :</p>
+<h2 id="execution-des-tests">Exécution des tests</h2>
+<p>Pour exécuter vos tests, utilisez la commande <code>npm run test:jest</code> 
+Cela exécutera tous les tests dans votre projet qui correspondent au modèle spécifié dans votre fichier 
+de configuration Jest.</p>
+<h2 id="ressources-supplementaires">Ressources supplémentaires</h2>
+<p>Pour plus d'informations sur l'utilisation de <code>Jest</code> et <code>Playwright</code>, consultez les documents suivants :</p>
+<ul>
+<li><a href="https://jestjs.io/">Jest Documentation</a></li>
+<li><a href="https://playwright.dev/">Playwright Documentation</a></li>
+<li><a href="https://github.com/playwright-community/jest-playwright">Jest Playwright GitHub</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../RunningTests/" class="btn btn-neutral float-left" title="Exécution des tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../LoginTestDetails/" class="btn btn-neutral float-right" title="Analyse du code et bonnes pratiques">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../RunningTests/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../LoginTestDetails/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
