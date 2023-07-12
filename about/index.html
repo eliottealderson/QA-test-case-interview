@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>About - HeyTeam Documentation</title>
+    <title>Visualisation de votre documentation : - HeyTeam Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "About";
+        var mkdocs_page_name = "Visualisation de votre documentation :";
         var mkdocs_page_input_path = "about.md";
         var mkdocs_page_url = null;
       </script>
@@ -118,7 +118,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>About</li>
+      <li>Visualisation de votre documentation :</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -127,7 +127,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="visualisation-de-votre-documentation">Visualisation de votre documentation :</h1>
+<p>MkDocs comprend un serveur de développement intégré qui vous permet de prévisualiser votre documentation pendant que vous l'écrivez. 
+Pour démarrer le serveur, accédez à votre dossier de projet via le terminal et exécutez :</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>Vous pouvez maintenant voir votre documentation en ouvrant votre navigateur Web à http://localhost:8000.</p>
+<h1 id="deploiement-de-votre-documentation">Déploiement de votre documentation :</h1>
+<p>Une fois que vous avez terminé d'écrire votre documentation, vous pouvez la déployer 
+sur GitHub Pages, GitLab Pages, ou un autre service d'hébergement de votre choix.</p>
+<p>Pour déployer sur GitHub Pages, exécutez la commande suivante :</p>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<p>Cette commande crée une nouvelle branche gh-pages dans votre dépôt Git, construit votre documentation et la pousse vers GitHub.</p>
+<p>N'oubliez pas d'ajouter et de commettre tous les changements dans votre dépôt Git avant de déployer.</p>
+<h2 id="_1"></h2>
+<p>Installez MkDocs si ce n'est pas déjà fait :
+- Vérifiez si Python est installé : <code>python --version</code> ou <code>python3 --version</code>
+- Installez Python si nécessaire : ous pouvez le télécharger et l'installer à partir du site officiel de Python. Lors de l'installation, assurez-vous de cocher l'option "Add Python to PATH" avant de cliquer sur "Install Now".
+- Vérifiez si pip est installé :Une fois Python installé, vous pouvez vérifier si pip est installé en exécutant la commande pip --version ou pip3 --version. Si pip est installé, vous devriez voir la version de pip affichée.
+- Installez pip si nécessaire :
+  Si pip n'est pas installé, vous pouvez le télécharger et l'installer en suivant les instructions sur le site officiel de pip.
+- Utilisez le bon préfixe de commande :
+Notez que si Python 3 est installé sur votre système, vous devrez peut-être utiliser pip3 et python3 au lieu de pip et python respectivement.
+- Essayez à nouveau d'installer MkDocs :
+Une fois Python et pip installés, essayez à nouveau d'installer MkDocs en utilisant la commande </p>
+<pre><code class="language-bash">pip install mkdocs
+'ou'
+pip3 install mkdocs
+</code></pre>
               
             </div>
           </div><footer>
