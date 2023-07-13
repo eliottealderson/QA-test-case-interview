@@ -22,3 +22,9 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
+      - name: Archive test artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-artifacts
+          path: |
+            ./artifacts/

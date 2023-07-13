@@ -1,9 +1,10 @@
 const config = {
+    outputDir: './artifacts',
     use: {
         // Options globales du navigateur
         browserContext: 'default', // Définit le contexte du navigateur par défaut
-        video: 'on', // Active l'enregistrement vidéo
-        screenshot: 'on', // Active les captures d'écran en cas d'échec
+        video: 'retry-with-video', // Active l'enregistrement vidéo pour les tests qui échouent
+        screenshot: 'only-on-failure', // Active les captures d'écran en cas d'échec
         headless: true, // Exécution en mode headless (sans interface graphique)
     },
     projects: [
