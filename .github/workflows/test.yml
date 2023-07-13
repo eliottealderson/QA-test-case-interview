@@ -22,8 +22,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm cache clean --force && npm ci
+      - name: Install @playwright/test
+        run: npm install -D @playwright/test
       - name: Run tests
-        run: npm run test
+        run: npx playwright test
       - name: Archive test artifacts
         uses: actions/upload-artifact@v2
         with:
