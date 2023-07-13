@@ -79,11 +79,17 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Exécution des tests</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#execution-des-tests-standards">Exécution des Tests Standards</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-des-tests-en-mode-sans-tete">Exécution des Tests en mode sans tête</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-des-tests-en-mode-debug">Exécution des Tests en mode Debug</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-des-tests-en-mode-debug-avec-node">Exécution des Tests en mode Debug avec Node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generation-de-la-documentation">Génération de la Documentation</a>
+    </li>
     </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../UsingJestWithPlaywright/">Utilisation de Jest avec Playwright</a>
                 </li>
               </ul>
               <ul>
@@ -129,21 +135,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="execution-des-tests">Exécution des tests</h1>
-<p>Les tests sont exécutés à l'aide de différents scripts définis dans le fichier <code>package.json</code>. Voici une description de chaque script de test :</p>
-<ul>
-<li><code>npm run test</code>: Exécute les tests à l'aide de Playwright.</li>
-<li><code>npm run test:jest</code>: Exécute les tests à l'aide de Jest.</li>
-<li><code>npm run test:headless</code>: Exécute les tests en mode sans tête (c'est-à-dire sans ouvrir un navigateur).</li>
-<li><code>npm run test:report</code>: Génère un rapport de test à l'aide de Mocha avec le reporter Mochawesome.</li>
-</ul>
-<p>Pour exécuter les tests, utilisez les commandes correspondantes dans le terminal de votre projet.</p>
+                <h1 id="execution-des-tests">Exécution des Tests</h1>
+<p>Dans ce projet, nous utilisons Playwright pour exécuter nos tests. 
+Voici une brève explication de comment vous pouvez exécuter les différents scripts de test 
+inclus dans le <code>package.json</code>.</p>
+<h2 id="execution-des-tests-standards">Exécution des Tests Standards</h2>
+<p>Pour exécuter les tests en mode standard, utilisez la commande suivante:</p>
+<pre><code class="language-bash">npm run test
+</code></pre>
+<p>Cette commande lance les tests à l'aide de Playwright.</p>
+<h2 id="execution-des-tests-en-mode-sans-tete">Exécution des Tests en mode sans tête</h2>
+<p>Si vous voulez exécuter les tests en mode sans tête, c'est-à-dire sans ouvrir une fenêtre de 
+navigateur, vous pouvez utiliser la commande suivante:</p>
+<pre><code class="language-bash">npm run test:headless
+</code></pre>
+<h2 id="execution-des-tests-en-mode-debug">Exécution des Tests en mode Debug</h2>
+<p>Si vous voulez déboguer vos tests, vous pouvez utiliser la commande suivante qui lance les 
+tests avec l'option <code>PWDEBUG</code> :</p>
+<pre><code class="language-bash">npm run test:debug
+</code></pre>
+<p>Cela va lancer Playwright en mode débogage, ce qui signifie que les tests s'arrêteront à 
+chaque action pour vous permettre de voir ce qui se passe à chaque étape.</p>
+<h2 id="execution-des-tests-en-mode-debug-avec-node">Exécution des Tests en mode Debug avec Node</h2>
+<p>Si vous voulez déboguer vos tests en utilisant l'inspecteur de Node, utilisez la commande 
+suivante:</p>
+<pre><code class="language-bash">npm run debug
+</code></pre>
+<p>Cela lance Node avec l'option <code>inspect-brk</code> qui arrête l'exécution du script avant le 
+premier <code>require()</code> et permet à un débogueur de se connecter avant que le code commence à 
+s'exécuter.</p>
+<h2 id="generation-de-la-documentation">Génération de la Documentation</h2>
+<p>Pour générer la documentation de code avec JSDoc, utilisez la commande suivante:</p>
+<pre><code class="language-bash">npm run docs
+</code></pre>
+<p>Cela va générer la documentation à partir de vos commentaires de code en utilisant le fichier de configuration <code>jsdoc.json</code>.</p>
+<hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../NetworkDependenciesManagement/" class="btn btn-neutral float-left" title="Gestion des dépendances réseau"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../UsingJestWithPlaywright/" class="btn btn-neutral float-right" title="Utilisation de Jest avec Playwright">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../LoginTestDetails/" class="btn btn-neutral float-right" title="Analyse du code et bonnes pratiques">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -169,7 +201,7 @@
       <span><a href="../NetworkDependenciesManagement/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../UsingJestWithPlaywright/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../LoginTestDetails/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -83,10 +83,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../UsingJestWithPlaywright/">Utilisation de Jest avec Playwright</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../LoginTestDetails/">Analyse du code et bonnes pratiques</a>
                 </li>
               </ul>
@@ -179,16 +175,24 @@ Cette documentation vous aidera à comprendre l'organisation du code et à navig
 └── test-results
 
 </code></pre>
-<p>Les fichiers .js dans le répertoire <code>pages/</code> encapsulent les fonctionnalités spécifiques à chaque page de l'application, 
-permettant une organisation et une modularité du code.</p>
-<p>Le répertoire <code>tests/</code> contient les tests automatisés pour le processus de connexion. 
-Ces fichiers utilisent les données stockées dans <code>data/testData.json</code> pour exécuter différents scénarios de test.</p>
-<p>La configuration de l'application et des tests est gérée dans les fichiers <code>config.mjs</code> 
-respectivement. Cela permet de centraliser et de contrôler les paramètres de l'application et des tests.</p>
-<p>Le serveur mock est géré dans <code>mock-server.js</code>, qui permet d'isoler les appels réseau et d'améliorer la stabilité 
-et la reproductibilité des tests.</p>
-<p>Le fichier <code>package.json</code> gère les dépendances du projet, tandis que <code>jsdocs.json</code> et <code>mkdocs.yml</code> sont utilisés 
-pour la génération de la documentation.</p>
+<h1 id="description-des-fichiers-et-dossiers">Description des Fichiers et Dossiers</h1>
+<p><code>combined.log</code> : Ce fichier contient des logs combinés provenant de différentes parties de l'application.
+<code>docs</code> : Ce dossier contient la documentation relative à l'ensemble du projet.
+<code>error.log</code> : Ce fichier contient les logs d'erreurs de l'application.
+<code>jsdoc.json</code> : Ce fichier est le fichier de configuration pour JSDoc qui est utilisé pour générer la documentation du code.
+<code>package.json</code> : Ce fichier contient la liste des paquets npm nécessaires pour le projet.
+<code>playwright.config.mjs</code> : Ce fichier contient la configuration de Playwright pour exécuter les tests.
+<code>projectDocs</code> : Ce dossier contient la documentation de MkDocs pour le projet.
+<code>scripts</code> : Ce dossier contient des scripts utilitaires pour le projet.
+<code>src</code> : Ce dossier contient le code source du projet.
+<code>test-results</code> : Ce dossier contient les résultats des tests exécutés.
+<code>config.mjs</code> : Ce fichier contient les configurations de base nécessaires pour l'exécution des tests. 
+Il inclut l'URL de base du site à tester, ainsi que d'autres paramètres de configuration spécifiques aux tests.
+<code>services</code> : Ce dossier contient les fichiers de service utilisés dans l'application. 
+Par exemple, le fichier logger.mjs dans ce dossier est utilisé pour gérer les logs de l'application.
+<code>test-plans</code> : Ce dossier contient les plans de test pour les différentes fonctionnalités de l'application. 
+Chaque fichier markdown représente un plan de test distinct. Par exemple, le fichier login-plan.md contient 
+le plan de test pour le processus de connexion.</p>
               
             </div>
           </div><footer>

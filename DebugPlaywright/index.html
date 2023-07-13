@@ -81,10 +81,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../UsingJestWithPlaywright/">Utilisation de Jest avec Playwright</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../LoginTestDetails/">Analyse du code et bonnes pratiques</a>
                 </li>
               </ul>
@@ -202,6 +198,53 @@ de débogage en haut à droite de l'IDE, puis cliquez sur le bouton de débogage
 <p>IntelliJ IDEA lancera les tests Playwright en mode de débogage et ouvrira l'outil de débogage. 
 Vous pouvez maintenant utiliser les outils de débogage pour inspecter les variables, 
 exécuter du code pas à pas, ajouter des points d'arrêt, etc.</p>
+<p>Bien sûr, voici comment vous pouvez intégrer l'option de débogage <code>PWDEBUG</code> à votre configuration :</p>
+<h2 id="ajout-de-loption-pwdebug-pour-le-debogage-de-playwright">Ajout de l'option PWDEBUG pour le débogage de Playwright</h2>
+<p>L'option <code>PWDEBUG</code> est une variable d'environnement qui peut être utilisée pour activer 
+le mode de débogage de Playwright. 
+Cette variable d'environnement active des fonctionnalités supplémentaires utiles lors du 
+débogage de vos tests, comme l'arrêt automatique avant chaque action Playwright, ce qui permet 
+d'inspecter l'état du navigateur avant que l'action ne soit exécutée.</p>
+<p>Voici comment vous pouvez l'ajouter à votre configuration :</p>
+<ol>
+<li>Ouvrez votre <code>package.json</code> et ajoutez le script de débogage suivant dans la section <code>scripts</code>:</li>
+</ol>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;test:debug&quot;: &quot;PWDEBUG=1 playwright test&quot;
+}
+</code></pre>
+<p>Votre <code>package.json</code> devrait ressembler à quelque chose comme ceci:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;my-project&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;My Project Description&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;playwright test&quot;,
+    &quot;debug&quot;: &quot;node --inspect-brk node_modules/.bin/playwright test&quot;,
+    &quot;test:debug&quot;: &quot;PWDEBUG=1 playwright test&quot;
+  },
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    ...
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@playwright/test&quot;: &quot;^1.14.1&quot;,
+    ...
+  }
+}
+</code></pre>
+<ol>
+<li>Pour exécuter vos tests en mode de débogage avec <code>PWDEBUG</code>, utilisez simplement 
+la commande <code>npm run test:debug</code> dans votre terminal. 
+Cela lancera les tests Playwright avec l'option <code>PWDEBUG</code> activée.</li>
+</ol>
+<p>Veuillez noter que lorsqu'il est utilisé avec <code>PWDEBUG=1</code>, Playwright s'arrête 
+automatiquement avant chaque action et après chaque navigation, ce qui vous permet d'inspecter 
+l'état du navigateur. C'est extrêmement utile lorsque vous essayez de comprendre pourquoi 
+un test particulier échoue.</p>
               
             </div>
           </div><footer>
