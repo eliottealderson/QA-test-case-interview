@@ -1,5 +1,6 @@
 site_name: HeyTeam Documentation
 nav:
+  - Documentation: 'about.md'
   - Accueil: 'index.md'
   - Organisation du code: 'CodeOrganization.md'
   - Utilisation de l'architecture Page Object: 'PageObjectArchitecture.md'
@@ -10,7 +11,6 @@ nav:
   - Rapports et Journaux détaillés: 'DetailedReportsLogs.md'
   - Gestion des dépendances réseau: 'NetworkDependenciesManagement.md'
   - Exécution des tests: 'RunningTests.md'
-  - Utilisation de Jest avec Playwright: 'UsingJestWithPlaywright.md'
   - Analyse du code et bonnes pratiques: 'LoginTestDetails.md'
   - Utilisation des scripts: 'project-info-doc.md'
   - Utilisation des scripts suite: 'Script-checkDependencies-doc.md'

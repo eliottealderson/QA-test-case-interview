@@ -52,18 +52,21 @@ Voici la structure du répertoire :
 
 ```
 
-
-Les fichiers .js dans le répertoire `pages/` encapsulent les fonctionnalités spécifiques à chaque page de l'application, 
-permettant une organisation et une modularité du code.
-
-Le répertoire `tests/` contient les tests automatisés pour le processus de connexion. 
-Ces fichiers utilisent les données stockées dans `data/testData.json` pour exécuter différents scénarios de test.
-
-La configuration de l'application et des tests est gérée dans les fichiers `config.mjs` 
-respectivement. Cela permet de centraliser et de contrôler les paramètres de l'application et des tests.
-
-Le serveur mock est géré dans `mock-server.js`, qui permet d'isoler les appels réseau et d'améliorer la stabilité 
-et la reproductibilité des tests.
-
-Le fichier `package.json` gère les dépendances du projet, tandis que `jsdocs.json` et `mkdocs.yml` sont utilisés 
-pour la génération de la documentation.
+# Description des Fichiers et Dossiers
+`combined.log` : Ce fichier contient des logs combinés provenant de différentes parties de l'application.<br>
+`docs` : Ce dossier contient la documentation relative à l'ensemble du projet.<br>
+`error.log` : Ce fichier contient les logs d'erreurs de l'application.<br>
+`jsdoc.json` : Ce fichier est le fichier de configuration pour JSDoc qui est utilisé pour générer la documentation du code.<br>
+`package.json` : Ce fichier contient la liste des paquets npm nécessaires pour le projet.<br>
+`playwright.config.mjs` : Ce fichier contient la configuration de Playwright pour exécuter les tests.<br>
+`projectDocs` : Ce dossier contient la documentation de MkDocs pour le projet.<br>
+`scripts` : Ce dossier contient des scripts utilitaires pour le projet.<br>
+`src` : Ce dossier contient le code source du projet.<br>
+`test-results` : Ce dossier contient les résultats des tests exécutés.<br>
+`config.mjs` : Ce fichier contient les configurations de base nécessaires pour l'exécution des tests.<br>
+Il inclut l'URL de base du site à tester, ainsi que d'autres paramètres de configuration spécifiques aux tests.<br>
+`services` : Ce dossier contient les fichiers de service utilisés dans l'application. <br>
+Par exemple, le fichier logger.mjs dans ce dossier est utilisé pour gérer les logs de l'application.<br>
+`test-plans` : Ce dossier contient les plans de test pour les différentes fonctionnalités de l'application. <br>
+Chaque fichier markdown représente un plan de test distinct. Par exemple, le fichier login-plan.md contient le plan de test 
+pour le processus de connexion.
