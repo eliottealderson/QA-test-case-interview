@@ -3,3 +3,9 @@ node_modules/
 ../.DS_Store
 site/
 .DS_Store
+../test-results/
+./test-results/
+../error.log
+./error.log
+./combined.log
+./allure-report/

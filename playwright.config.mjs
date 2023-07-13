@@ -1,5 +1,5 @@
 const config = {
-    outputDir: './artifacts',
+    outputDir: './test-results',
     use: {
         // Options globales du navigateur
         browserContext: 'default', // Définit le contexte du navigateur par défaut
@@ -20,11 +20,11 @@ const config = {
         },
     ],
     reporter: [
-        'allure-playwright',
-        'line',
-        'dot'
+        ['allure-playwright'],
+        ['line'],
+        ['dot']
     ], // Utilisation du rapporteur Allure, de ligne et de points
-    workers: 6, // Utilisation de trois workers
+    workers: 3, // Utilisation de trois workers
     timeout: 30000, // Timeout de 30 secondes pour chaque test
     retries: 0, // Nombre de tentatives en cas d'échec
 };
