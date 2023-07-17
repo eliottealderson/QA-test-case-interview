@@ -31,6 +31,9 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: List project directory after tests
+        run: ls -l
+
       - name: Archive test artifacts
         uses: actions/upload-artifact@v2
         with:
