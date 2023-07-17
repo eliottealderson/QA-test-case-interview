@@ -34,8 +34,7 @@ jobs:
       - name: List project directory after tests
         run: ls -l
 
-      - name:
-          Debug: List files
+      - name: "Debug: List files"
         run: ls -R ./test-results
 
       - name: Archive test artifacts
