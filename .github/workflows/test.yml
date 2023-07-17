@@ -36,4 +36,4 @@ jobs:
         with:
           name: test-artifacts
           path: |
-            ./artifacts/
+            ./allure-results/
