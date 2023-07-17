@@ -70,7 +70,7 @@ const displayProjectInfo = async () => {
     // Project Structure
     console.log('--- Project Structure ---');
     const projectRoot = path.resolve('.');
-    const excludedDirs = ['node_modules', '.idea', 'external', 'libraries', 'scratches and consoles', '.git','docs', 'test-results', 'site'
+    const excludedDirs = ['node_modules', '.idea', 'external', 'libraries', 'scratches and consoles', '.git','docs', 'test-results', 'site',  'allure-results'
     ];
     console.log(projectRoot);
     displayDirectoryStructure(projectRoot, excludedDirs);

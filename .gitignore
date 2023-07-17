@@ -1,11 +1,9 @@
 node_modules/
 .idea
-../.DS_Store
-site/
 .DS_Store
-../test-results/
-./test-results/
-../error.log
-./error.log
-./combined.log
-./allure-report/
+Heyteam.iml/
+projectDocs/site/
+allure-results/
+combined.log
+error.log
+test-results/
