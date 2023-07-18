@@ -34,11 +34,14 @@ jobs:
       - name: List project directory after tests
         run: ls -l
 
-      - name: "Debug: List files"
+      - name: "Debug: List files in test-results"
         run: ls -R ./test-results
+
+      - name: "Debug: List all files"
+        run: ls -R
 
       - name: Archive test artifacts
         uses: actions/upload-artifact@v3
         with:
           name: test-artifacts
-          path: ${{ github.workspace }}/test-results
+          path: ./test-results
