@@ -32,24 +32,30 @@ jobs:
         run: npm run test
 
       - name: List project directory after tests
+        if: ${{ always() }}
         run: ls -l
 
       - name: "Debug: List files in test-results"
+        if: ${{ always() }}
         run: ls -R ./test-results
 
       - name: "Debug: List all files"
+        if: ${{ always() }}
         run: ls -R
 
       - name: Install Allure commandline
+        if: ${{ always() }}
         run: |
           wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz
           tar -zxvf allure-commandline-2.13.8.tgz
           echo "${PWD}/allure-2.13.8/bin" >> $GITHUB_PATH
 
       - name: Generate Allure report
+        if: ${{ always() }}
         run: allure generate ./allure-results --clean -o ./allure-report
 
       - name: Archive test artifacts
+        if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
           name: test-artifacts
