@@ -1,0 +1,11 @@
+2023-07-18 16:27:36 [INFO]: Navigating to https://openclassrooms.com/fr/login
+2023-07-18 16:27:37 [INFO]: Navigated to https://openclassrooms.com/fr/login
+2023-07-18 16:27:37 [undefined] info: Checking for popin...
+2023-07-18 16:27:45 [INFO]: Filling login form with email: julesvernie@gmx.fr
+2023-07-18 16:27:45 [INFO]: Filling login form with password: wQLB7TcSBhLfo
+2023-07-18 16:27:47 [INFO]: Submitting login form
+2023-07-18 16:28:02 [undefined] error: An error occurred: page.click: Timeout 15000ms exceeded.
+=========================== logs ===========================
+waiting for locator('#invalidElement')
+============================================================
+2023-07-18 16:28:02 [undefined] error: Call stack:

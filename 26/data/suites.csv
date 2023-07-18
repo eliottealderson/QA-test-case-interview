@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jul 18 16:28:03 GMT 2023","Tue Jul 18 16:28:17 GMT 2023","14148","Desktop Chromium","","@invalid-login-tests","","","should not login with a valid email but invalid password",""
+"passed","Tue Jul 18 16:27:35 GMT 2023","Tue Jul 18 16:27:57 GMT 2023","21475","Desktop Chromium","","@successful-login-tests","","","should login with valid credentials",""
+"passed","Tue Jul 18 16:27:57 GMT 2023","Tue Jul 18 16:28:19 GMT 2023","21647","Desktop Chromium","","@successful-login-tests","","","should maintain user session after reconnection",""
+"passed","Tue Jul 18 16:27:35 GMT 2023","Tue Jul 18 16:28:03 GMT 2023","27652","Desktop Chromium","","@error-handling-tests","","","should demonstrate stack trace logging",""
+"passed","Tue Jul 18 16:27:49 GMT 2023","Tue Jul 18 16:28:03 GMT 2023","13430","Desktop Chromium","","@invalid-login-tests","","","should not display password field with unknown email and show SignUpPage",""
+"passed","Tue Jul 18 16:27:36 GMT 2023","Tue Jul 18 16:27:49 GMT 2023","13633","Desktop Chromium","","@invalid-login-tests","","","should not submit the form with invalid email",""
+"passed","Tue Jul 18 16:28:03 GMT 2023","Tue Jul 18 16:28:21 GMT 2023","18340","Desktop Chromium","","@password-recovery-tests","","","should navigate to password recovery page when forgot password is clicked",""
