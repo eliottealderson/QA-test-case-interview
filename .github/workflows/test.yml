@@ -40,15 +40,19 @@ jobs:
       - name: "Debug: List all files"
         run: ls -R
 
+      - name: Install Allure commandline
+        run: |
+          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz
+          tar -zxvf allure-commandline-2.13.8.tgz
+          echo "${PWD}/allure-2.13.8/bin" >> $GITHUB_PATH
+
+      - name: Generate Allure report
+        run: allure generate ./allure-results --clean -o ./allure-report
+
       - name: Archive test artifacts
         uses: actions/upload-artifact@v3
         with:
           name: test-artifacts
           path: |
             ./test-results
-            ./allure-results
-
-      - name: Generate Allure report
-        uses: allure-framework/allure2@2.13.8
-        with:
-          results: ./allure-results
+            ./allure-report
