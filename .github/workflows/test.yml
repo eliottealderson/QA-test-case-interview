@@ -48,7 +48,7 @@ jobs:
             ./test-results
             ./allure-results
 
-      - name: Publish Allure report
-        uses: simple-icons/allure-report@v0.1.0
+      - name: Generate Allure report
+        uses: allure-framework/allure2@2.13.8
         with:
-          allure_results: allure-results
+          results: ./allure-results
