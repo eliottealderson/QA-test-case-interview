@@ -1,9 +1,0 @@
-node_modules/
-.idea
-.DS_Store
-Heyteam.iml/
-projectDocs/site/
-allure-results/
-combined.log
-error.log
-test-results/
