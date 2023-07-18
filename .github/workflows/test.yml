@@ -43,16 +43,12 @@ jobs:
         if: ${{ always() }}
         run: ls -R
 
-      - name: Install Allure commandline
+      - name: Generate Allure report and Publish
         if: ${{ always() }}
-        run: |
-          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz
-          tar -zxvf allure-commandline-2.13.8.tgz
-          echo "${PWD}/allure-2.13.8/bin" >> $GITHUB_PATH
-
-      - name: Generate Allure report
-        if: ${{ always() }}
-        run: allure generate ./allure-results --clean -o ./allure-report
+        uses: afiore/action-allure-report@v0.1.0
+        with:
+          results-dir: ./allure-results
+          report-dir: ./allure-report
 
       - name: Archive test artifacts
         if: ${{ always() }}
