@@ -63,7 +63,7 @@ jobs:
 
       - name: Echo working directory
         run: echo $(pwd)
-    
+
       - name: Build MkDocs
         run: mkdocs build
 
@@ -120,13 +120,13 @@ jobs:
           allure_history: allure-history
 
       - name: Clean Allure history
-        run: rm -rf allure-history/*
+        run: sudo chown -R $USER:$USER allure-history && rm -rf allure-history/*
 
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
           publish_dir: allure-history
 
@@ -134,7 +134,7 @@ jobs:
         if: always()
         uses: Sibz/github-status-action@v1
         with:
-          authToken: ${{ secrets.DEPLOY_TOKEN }}
+          authToken: ${{ secrets.GH_PAT }}
           context: 'Test report'
           state: 'success'
           sha: ${{ github.sha }}
