@@ -31,6 +31,13 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Archive Allure results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: allure-results
+
       - name: List project directory after tests
         if: ${{ always() }}
         run: ls -l
@@ -101,6 +108,11 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
+      - name: Download Allure results
+        uses: actions/download-artifact@v2
+        with:
+          name: allure-results
+
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
@@ -114,13 +126,10 @@ jobs:
         if: always()
         id: allure-report
         with:
-          allure_results: ./allure-results
+          allure_results: allure-results
           gh_pages: gh-pages
           allure_report: ./allure-report
           allure_history: allure-history
-
-      - name: Clean Allure history
-        run: sudo chown -R $USER:$USER allure-history && rm -rf allure-history/*
 
       - name: Deploy report to Github Pages
         if: always()
@@ -128,7 +137,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
 
       - name: Post the link to the report
         if: always()
