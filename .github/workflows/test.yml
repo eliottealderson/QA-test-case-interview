@@ -87,6 +87,14 @@ jobs:
           sha: ${{ github.sha }}
           target_url: https://eliottealderson.github.io/QA-test-case-interview/
 
+      - name: Send email notification
+        run: node ../../scripts/send_email_notification.mjs
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASS: ${{ secrets.SENDER_PASS }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+
+
 
   deploy_allure:
     needs: [build]
