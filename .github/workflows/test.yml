@@ -46,6 +46,7 @@ jobs:
   deploy_mkdocs:
     needs: [build]
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -73,6 +74,7 @@ jobs:
   deploy_allure:
     needs: [build]
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Get Allure history
         uses: actions/checkout@v2
