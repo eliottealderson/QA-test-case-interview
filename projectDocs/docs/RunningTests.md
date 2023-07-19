@@ -4,7 +4,7 @@ Dans ce projet, nous utilisons Playwright pour exécuter nos tests.
 Voici une brève explication de comment vous pouvez exécuter les différents scripts de test 
 inclus dans le `package.json`.
 
-- [Pré-requis](projectDocs/docs/DependenciesManagement.md)
+- [Pré-requis](DependenciesManagement.md)
 
 ## Exécution des Tests Standards
 
