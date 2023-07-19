@@ -87,6 +87,8 @@ jobs:
           sha: ${{ github.sha }}
           target_url: https://eliottealderson.github.io/QA-test-case-interview/
 
+      - name: Install nodemailer
+        run: npm install nodemailer
       - name: Send email notification
         run: node ./scripts/send_email_notification.mjs
         env:
