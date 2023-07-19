@@ -113,7 +113,7 @@ jobs:
         with:
           name: allure-results
 
-      - name: Debug: List files in allure-results
+      - name: "Debug: List files in allure-results"
         run: ls -R ./allure-results
 
       - name: Get Allure history
