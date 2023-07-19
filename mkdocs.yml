@@ -1,0 +1,20 @@
+site_name: HeyTeam Documentation
+nav:
+  - Documentation: 'projectDocs/docs/about.md'
+  - Accueil: 'projectDocs/docs/index.md'
+  - Organisation du code: 'projectDocs/docs/CodeOrganization.md'
+  - Utilisation de l'architecture Page Object: 'projectDocs/docs/PageObjectArchitecture.md'
+  - Gestion des données de test: 'projectDocs/docs/TestDataManagement.md'
+  - Configuration et gestion des environnements: 'projectDocs/docs/EnvironmentConfigManagement.md'
+  - Utilisation des assertions: 'projectDocs/docs/AssertionsUsage.md'
+  - Gestion des dépendances: 'projectDocs/docs/DependenciesManagement.md'
+  - Rapports et Journaux détaillés: 'projectDocs/docs/DetailedReportsLogs.md'
+  - Gestion des dépendances réseau: 'projectDocs/docs/NetworkDependenciesManagement.md'
+  - Exécution des tests: 'projectDocs/docs/RunningTests.md'
+  - CI/CD exécution des tests: 'projectDocs/docs/GitHubActions.md'
+  - Analyse du code et bonnes pratiques: 'projectDocs/docs/LoginTestDetails.md'
+  - Utilisation des scripts: 'projectDocs/docs/project-info-doc.md'
+  - Utilisation des scripts suite: 'projectDocs/docs/Script-checkDependencies-doc.md'
+  - Configuration du débogage Playwright: 'projectDocs/docs/DebugPlaywright.md'
+  - Test management: 'projectDocs/docs/test-management.md'
+theme: readthedocs
