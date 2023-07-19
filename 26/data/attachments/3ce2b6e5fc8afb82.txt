@@ -1,7 +1,0 @@
-2023-07-18 16:27:57 [INFO]: Navigating to https://openclassrooms.com/fr/login
-2023-07-18 16:27:57 [INFO]: Navigated to https://openclassrooms.com/fr/login
-2023-07-18 16:27:57 [undefined] info: Checking for popin...
-2023-07-18 16:28:04 [INFO]: Filling login form with email: julesvernie@gmx.fr
-2023-07-18 16:28:04 [INFO]: Filling login form with password: wQLB7TcSBhLfo
-2023-07-18 16:28:08 [INFO]: Submitting login form
-2023-07-18 16:28:18 [INFO]: Checking if user is logged in
