@@ -7,3 +7,4 @@ allure-results/
 combined.log
 error.log
 test-results/
+allure-history/*
