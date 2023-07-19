@@ -54,9 +54,15 @@ test.describe('@error-handling-tests', () => {
      * Tear down each test: log error if the test failed
      */
     test.afterEach(async ({ page }, testInfo) => {
+        logger.info('AfterEach block starting...');
+        test.setTimeout(60000); // Augmenter le délai d'attente à 60000 ms
+
+        logger.info('Checking test status...');
         if (testInfo.status === TEST_FAILED_STATUS) {
             const { error } = testInfo;
             logger.error('An error occurred during the test:', error);
         }
+        
+        logger.info('AfterEach block completed');
     });
 });

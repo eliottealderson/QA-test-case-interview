@@ -78,6 +78,16 @@ jobs:
           publish_dir: ./projectDocs/site
           keep_files: true
 
+      - name: Post the link to the documentation
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.DEPLOY_TOKEN }}
+          context: 'Documentation'
+          state: 'success'
+          sha: ${{ github.sha }}
+          target_url: https://eliottealderson.github.io/QA-test-case-interview/
+
+
   deploy_allure:
     needs: [build]
     runs-on: ubuntu-latest
