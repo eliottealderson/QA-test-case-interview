@@ -19,3 +19,4 @@ nav:
   - Test management: 'test-management.md'
 theme: readthedocs
 docs_dir: 'projectDocs/docs'
+site_dir: './projectDocs/site'
