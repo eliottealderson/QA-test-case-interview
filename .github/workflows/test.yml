@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,54 +18,48 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Clear npm cache
-        run: npm cache clean --force
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm run test
-      - name: Archive Allure results
-        if: ${{ always() }}
+      - run: npm ci
+      - run: npm run test
+
+      - name: Archive test artifacts
         uses: actions/upload-artifact@v2
         with:
           name: allure-results
-          path: allure-results
+          path: ./allure-results
 
   deploy_mkdocs:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install dependencies
-        run: |
+      - run: |
           python -m pip install --upgrade pip
           pip install mkdocs
-      - name: Build MkDocs
-        run: mkdocs build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./projectDocs/site
 
   deploy_allure:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download Allure results
-        uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2
         with:
           name: allure-results
-      - name: Generate Allure Report
+
+      - name: Generate Allure Report and Publish
         uses: simple-elf/allure-report-action@v1
         with:
           allure_results: allure-results
-          allure_report: allure-report
+          gh_pages: true
+
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./allure-report
