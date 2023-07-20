@@ -43,6 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./projectDocs/site
+          publish_branch: docs
 
   deploy_allure:
     needs: build
