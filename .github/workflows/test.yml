@@ -40,7 +40,7 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: allure-results
+          name: allure-results-copy
           path: allure-results-copy
 
       - name: List project directory after tests
