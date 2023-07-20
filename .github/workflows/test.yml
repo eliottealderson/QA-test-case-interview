@@ -31,136 +31,60 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - name: Copy Allure results
-        if: ${{ always() }}
-        run: |
-          cp -r allure-results allure-results-copy
+      - name: Verify Allure results
+        run: ls -l ./allure-results
 
       - name: Archive Allure results
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: allure-results-copy
-          path: allure-results-copy
+          name: allure-results
+          path: ./allure-results
 
-      - name: List project directory after tests
-        if: ${{ always() }}
-        run: ls -l
-
-      - name: "Debug: List files in test-results"
-        if: ${{ always() }}
-        run: ls -R ./test-results
-
-      - name: "Debug: List all files"
-        if: ${{ always() }}
-        run: ls -R
-
-  deploy_mkdocs:
-    needs: [build]
+  generate_allure_report:
+    needs: build
     runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs
-
-      - name: Echo working directory
-        run: echo $(pwd)
-
-      - name: Build MkDocs
-        run: mkdocs build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          publish_branch: docs
-          publish_dir: ./projectDocs/site
-          keep_files: true
-
-      - name: Post the link to the documentation
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{ secrets.DEPLOY_TOKEN }}
-          context: 'Documentation'
-          state: 'success'
-          sha: ${{ github.sha }}
-          target_url: https://eliottealderson.github.io/QA-test-case-interview/
-
-      - name: Install nodemailer
-        run: npm install nodemailer
-      - name: Send email notification
-        run: node ./scripts/send_email_notification.mjs
-        env:
-          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-          SENDER_PASS: ${{ secrets.SENDER_PASS }}
-          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
-
-  deploy_allure:
-    needs: [build]
-    runs-on: ubuntu-latest
-    if: always()
     steps:
       - name: Download Allure results
         uses: actions/download-artifact@v2
         with:
-          name: allure-results-copy
+          name: allure-results
 
-      - name: "Debug: List files after download"
-        run: ls -R .
+      - name: Verify downloaded Allure results
+        run: ls -l ./allure-results
 
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@v1
         with:
-          ref: gh-pages
-          path: gh-pages
+          allure_results: ./allure-results
+          report_link: allure-report
+          report_dir: allure-report
 
-      - name: Generate Allure Report and Publish
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
+      - name: Verify Allure report
+        run: ls -l ./allure-report
+
+      - name: Archive Allure report
+        uses: actions/upload-artifact@v2
         with:
-          allure_results: allure-results-copy
-          gh_pages: gh-pages
-          allure_report: ./allure-report
-          allure_history: allure-history
+          name: allure-report
+          path: ./allure-report
+
+  deploy_allure_report:
+    needs: generate_allure_report
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Allure report
+        uses: actions/download-artifact@v2
+        with:
+          name: allure-report
+
+      - name: Verify downloaded Allure report
+        run: ls -l ./allure-report
 
       - name: Deploy report to Github Pages
-        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
-          publish_dir: allure-report
-
-      - name: Post the link to the report
-        if: always()
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{ secrets.GH_PAT }}
-          context: 'Test report'
-          state: 'success'
-          sha: ${{ github.sha }}
-          target_url: https://eliottealderson.github.io/QA-test-case-interview/${{ github.run_number }}
-
-      - name: Archive test artifacts
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-artifacts
-          path: |
-            ./test-results
+          publish_dir: ./allure-report
