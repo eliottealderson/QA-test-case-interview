@@ -5,86 +5,66 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v2
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Clear npm cache
         run: npm cache clean --force
-
       - name: Install dependencies
         run: npm ci
-
       - name: Run tests
         run: npm run test
-
-      - name: Verify Allure results
-        run: ls -l ./allure-results
-
       - name: Archive Allure results
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: allure-results
-          path: ./allure-results
+          path: allure-results
 
-  generate_allure_report:
+  deploy_mkdocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs
+      - name: Build MkDocs
+        run: mkdocs build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+
+  deploy_allure:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Download Allure results
         uses: actions/download-artifact@v2
         with:
           name: allure-results
-
-      - name: Verify downloaded Allure results
-        run: ls -l ./allure-results
-
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@v1
         with:
-          allure_results: ./allure-results
-          report_link: allure-report
-          report_dir: allure-report
-
-      - name: Verify Allure report
-        run: ls -l ./allure-report
-
-      - name: Archive Allure report
-        uses: actions/upload-artifact@v2
-        with:
-          name: allure-report
-          path: ./allure-report
-
-  deploy_allure_report:
-    needs: generate_allure_report
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download Allure report
-        uses: actions/download-artifact@v2
-        with:
-          name: allure-report
-
-      - name: Verify downloaded Allure report
-        run: ls -l ./allure-report
-
+          allure_results: allure-results
+          allure_report: allure-report
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GH_PAT }}
-          publish_branch: gh-pages
-          publish_dir: ./allure-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
