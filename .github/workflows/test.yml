@@ -29,6 +29,7 @@ jobs:
 
   deploy_mkdocs:
     needs: build
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -47,6 +48,7 @@ jobs:
 
   deploy_allure:
     needs: build
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v2
