@@ -164,4 +164,3 @@ jobs:
           name: test-artifacts
           path: |
             ./test-results
-            ./allure-report
