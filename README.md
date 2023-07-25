@@ -3,8 +3,8 @@
 [![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg)](https://github.com/eliottealderson/QA-test-case-interview/actions)
 
 Consultez notre :
-- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs)/docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure
-- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs26/)/docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure
+- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs)/docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs
+- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs26/)/docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs
 
 ## Organisation des branches
 
@@ -80,7 +80,7 @@ Les badges au début de ce README vous fournissent des informations rapides sur 
 - Le badge ![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg) indique le statut du dernier workflow exécuté. Vous pouvez cliquer dessus pour accéder directement à la page des workflows GitHub Actions de ce répertoire.
 
 - Les liens suivants vous mènent respectivement à notre [documentation](https://eliottealderson.github.io/docs/docs/) et
-à nos [rapports de test](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs26/). /docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure
+à nos [rapports de test](https://eliottealderson.github.io/QA-test-case-interview/docsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocsdocs26/). /docs/docs/docs/allure/docs/allure/docs/docs/allure/docs/allure/docs/allure/docs/allure/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs/allure/docs
 <br> Ils vous permettent de consulter facilement les résultats détaillés de nos tests et la documentation à jour de notre projet.
 
 Ces badges et liens vous permettent de suivre facilement l'état actuel de notre projet et de ses tests à chaque fois 
