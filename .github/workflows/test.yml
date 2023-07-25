@@ -82,56 +82,53 @@ jobs:
           SENDER_PASS: ${{ secrets.SENDER_PASS }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
 
-  deploy_allure:
-    needs: [build, deploy_mkdocs]
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: allure-results
-      - uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: allure-history
-      - name: Generate Allure Report and Publish
-        uses: simple-elf/allure-report-action@v1
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-          allure_history: allure-history/allure
-          keep_reports: 20
-      - name: Deploy report to Github Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./allure-history/allure
-          publish_branch: gh-pages
-          destination_dir: allure
-      - run: |
-          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/\(.*[^/]\)#(https://eliottealderson.github.io/QA-test-case-interview/\1/allure#' README.md
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Update README with new Allure link" -a
-        if: ${{ always() }}
-      - uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          branch: 'main'
-        if: ${{ always() }}
-      - name: Post the link to the Allure report
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{ secrets.DEPLOY_TOKEN }}
-          context: 'Allure Report'
-          state: 'success'
-          sha: ${{ github.sha }}
-          target_url: https://eliottealderson.github.io/QA-test-case-interview/allure
-      - name: Install nodemailer
-        run: npm install nodemailer
-      - name: Send email notification
-        run: node ./scripts/send_email_notification.mjs
-        env:
-          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-          SENDER_PASS: ${{ secrets.SENDER_PASS }}
-          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+deploy_allure:
+  needs: [build, deploy_mkdocs]
+  if: ${{ always() }}
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: allure-results
+
+    - name: Verify working directory
+      run: |
+        pwd
+        ls
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GH_PAT }}
+
+    - name: Update README
+      run: |
+        sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/\(.*[^/]\)#(https://eliottealderson.github.io/QA-test-case-interview/\1/allure#' README.md
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Update README with new Allure link" -a
+      if: ${{ always() }}
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GH_PAT }}
+        branch: 'main'
+      if: ${{ always() }}
+        
+    - name: Post the link to the Allure report
+      uses: Sibz/github-status-action@v1
+      with:
+        authToken: ${{ secrets.DEPLOY_TOKEN }}
+        context: 'Allure Report'
+        state: 'success'
+        sha: ${{ github.sha }}
+        target_url: https://eliottealderson.github.io/QA-test-case-interview/allure
+    - name: Install nodemailer
+      run: npm install nodemailer
+    - name: Send email notification
+      run: node ./scripts/send_email_notification.mjs
+      env:
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        SENDER_PASS: ${{ secrets.SENDER_PASS }}
+        RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
