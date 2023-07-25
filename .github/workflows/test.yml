@@ -101,17 +101,16 @@ jobs:
           echo "List of files in current directory after download:"
           ls -la
 
-      - name: Move Allure results to allure/allure-results directory
+      - name: Move Allure results to root directory
         run: |
-          mkdir -p allure/allure-results
           for file in *.json; do
             if [ "$file" != "jsdoc.json" ] && [ "$file" != "package-lock.json" ] && [ "$file" != "package.json" ]; then
-              mv "$file" allure/allure-results/
+              mv "$file" .
             fi
           done
-          mv *.txt allure/allure-results/
-          echo "List of files in allure/allure-results directory:"
-          ls -la allure/allure-results
+          mv *.txt .
+          echo "List of files in current directory:"
+          ls -la
 
       - name: Checkout gh-pages and deploy Allure Report
         run: |
@@ -119,10 +118,10 @@ jobs:
           git checkout gh-pages || git checkout --orphan gh-pages
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add allure
-          git commit -m "Add allure-results to allure directory"
-          git push origin gh-pages    
-      
+          git add .
+          git commit -m "Add allure-results to root directory"
+          git push origin gh-pages
+
       - name: Verify working directory
         run: |
           pwd
