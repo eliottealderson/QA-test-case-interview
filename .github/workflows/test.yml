@@ -98,7 +98,7 @@ jobs:
       - name: Move Allure results to allure directory
         run: |
           mkdir -p allure
-          cp -r ${GITHUB_WORKSPACE}/allure-results/* allure/
+          cp -r allure-results/allure-results/* allure/
 
       - name: Checkout gh-pages and deploy Allure Report
         run: |
