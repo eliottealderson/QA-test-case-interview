@@ -83,7 +83,7 @@ jobs:
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
 
   deploy_allure:
-    needs: [build, deploy_mkdocs]
+    needs: [ build, deploy_mkdocs ]
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
@@ -98,7 +98,7 @@ jobs:
       - name: Move Allure results to allure directory
         run: |
           mkdir -p allure
-          cp -r allure-results/* allure/
+          cp -r ${GITHUB_WORKSPACE}/allure-results/* allure/
 
       - name: Checkout gh-pages and deploy Allure Report
         run: |
@@ -107,8 +107,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add allure
           git commit -m "Add allure-results to allure directory"
-          git push origin gh-pages
-  
+          git push origin gh-pages    
+      
       - name: Verify working directory
         run: |
           pwd
