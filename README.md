@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg)](https://github.com/eliottealderson/QA-test-case-interview/actions)
 
 Consultez notre :
-- [Documentation ici](https://eliottealderson.github.io/docs/docs/)
+- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/)
 - [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/26/)
 
 ## Organisation des branches
