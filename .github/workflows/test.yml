@@ -95,10 +95,21 @@ jobs:
         with:
           name: allure-results
 
+      - name: List files in current directory after download
+        run: |
+          echo "List of files in current directory:"
+          ls -la
+          echo "List of files in allure-results directory:"
+          ls -la allure-results
+
       - name: Move Allure results to allure directory
         run: |
-          mkdir -p allure
-          cp -r allure-results/allure-results/* allure/
+          if [ -d "allure-results" ]; then
+            mkdir -p allure
+            cp -r allure-results/* allure/
+          else
+            echo "Directory allure-results does not exist"
+          fi
 
       - name: Checkout gh-pages and deploy Allure Report
         run: |
