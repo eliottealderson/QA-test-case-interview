@@ -90,6 +90,15 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: allure-results
+          
+      - name: Copy allure-results to allure directory
+        run: |
+          git checkout gh-pages
+          mkdir -p allure
+          cp -r allure-results/* allure/
+          git add allure
+          git commit -m "Add allure-results to allure directory"
+          git push origin gh-pages
   
       - name: Verify working directory
         run: |
