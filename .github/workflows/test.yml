@@ -24,6 +24,7 @@ jobs:
       - run: npm run test
 
       - name: Archive test artifacts
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: allure-results
