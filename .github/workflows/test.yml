@@ -51,10 +51,13 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Mkdocs link" -a
-      - uses: ad-m/github-push-action@v0.6.0
+        if: ${{ always() }}
+      - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
+        if: ${{ always() }}
+
       - name: Post the link to the documentation
         uses: Sibz/github-status-action@v1
         with:
@@ -99,10 +102,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Allure link" -a
-      - uses: ad-m/github-push-action@v0.6.0
+        if: ${{ always() }}
+      - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
+        if: ${{ always() }}
       - name: Post the link to the Allure report
         uses: Sibz/github-status-action@v1
         with:
