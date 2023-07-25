@@ -76,7 +76,7 @@ jobs:
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
 
   deploy_allure:
-    needs: build
+    needs: [build, deploy_mkdocs]
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
