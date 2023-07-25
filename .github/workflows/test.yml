@@ -100,9 +100,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PAT }}
-  
+
       - name: Update README
         run: |
+          git pull origin main
           sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/\(.*[^/]\)#(https://eliottealderson.github.io/QA-test-case-interview/\1/allure#' README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
