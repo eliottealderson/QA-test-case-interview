@@ -53,7 +53,7 @@ jobs:
           git commit -m "Update README with new Mkdocs link" -a
       - uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
       - name: Post the link to the documentation
         uses: Sibz/github-status-action@v1
@@ -101,7 +101,7 @@ jobs:
           git commit -m "Update README with new Allure link" -a
       - uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
       - name: Post the link to the Allure report
         uses: Sibz/github-status-action@v1
