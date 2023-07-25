@@ -117,13 +117,14 @@ jobs:
         run: |
           git fetch origin
           git checkout gh-pages || git checkout --orphan gh-pages
-          mv temp/* .
+          mkdir allure-results
+          mv temp/* allure-results/
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Add allure-results to root directory"
           git push origin gh-pages   
-
+      
       - name: Verify working directory
         run: |
           pwd
