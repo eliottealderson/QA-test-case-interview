@@ -51,7 +51,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Mkdocs link" -a
-      - uses: ad-m/github-push-action@master
+      - uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
@@ -99,7 +99,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Allure link" -a
-      - uses: ad-m/github-push-action@master
+      - uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GH_PAT }}
           branch: 'main'
