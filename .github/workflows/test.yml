@@ -97,19 +97,20 @@ jobs:
 
       - name: List files in current directory after download
         run: |
-          echo "List of files in current directory:"
+          echo "List of files in current directory after download:"
           ls -la
-          echo "List of files in allure-results directory:"
-          ls -la allure-results
 
-      - name: Move Allure results to allure directory
+      - name: Move Allure results to allure/allure-results directory
         run: |
-          if [ -d "allure-results" ]; then
-            mkdir -p allure
-            cp -r allure-results/* allure/
-          else
-            echo "Directory allure-results does not exist"
-          fi
+          mkdir -p allure/allure-results
+          for file in *.json; do
+            if [ "$file" != "jsdoc.json" ] && [ "$file" != "package-lock.json" ] && [ "$file" != "package.json" ]; then
+              mv "$file" allure/allure-results/
+            fi
+          done
+          mv *.txt allure/allure-results/
+          echo "List of files in allure/allure-results directory:"
+          ls -la allure/allure-results
 
       - name: Checkout gh-pages and deploy Allure Report
         run: |
