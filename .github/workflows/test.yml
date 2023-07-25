@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   build:
@@ -52,7 +54,7 @@ jobs:
           publish_branch: gh-pages
           destination_dir: docs
       - run: |
-          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/#(https://eliottealderson.github.io/QA-test-case-interview/docs#' README.md
+          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/\(.*[^/]\)#(https://eliottealderson.github.io/QA-test-case-interview/\1/docs#' README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Mkdocs link" -a
@@ -88,22 +90,26 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: allure-results
-
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: allure-history
       - name: Generate Allure Report and Publish
         uses: simple-elf/allure-report-action@v1
         with:
           allure_results: allure-results
-          gh_pages: true
-
+          allure_report: allure-report
+          allure_history: allure-history/allure
+          keep_reports: 20
       - name: Deploy report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./allure-report
+          publish_dir: ./allure-history/allure
           publish_branch: gh-pages
           destination_dir: allure
       - run: |
-          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/#(https://eliottealderson.github.io/QA-test-case-interview/allure#' README.md
+          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/\(.*[^/]\)#(https://eliottealderson.github.io/QA-test-case-interview/\1/allure#' README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Allure link" -a
