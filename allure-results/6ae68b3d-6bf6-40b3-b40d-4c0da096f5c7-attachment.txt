@@ -1,0 +1,3 @@
+2023-07-25 23:13:17 [INFO]: Navigating to https://openclassrooms.com/fr/login
+2023-07-25 23:13:18 [INFO]: Navigated to https://openclassrooms.com/fr/login
+2023-07-25 23:13:18 [undefined] info: Checking for popin...
