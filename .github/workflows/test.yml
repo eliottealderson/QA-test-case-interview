@@ -87,15 +87,24 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
+
       - uses: actions/download-artifact@v2
         with:
           name: allure-results
-          
-      - name: Copy allure-results to allure directory
+
+      - name: Move Allure results to allure directory
         run: |
-          git checkout gh-pages
           mkdir -p allure
           cp -r allure-results/* allure/
+
+      - name: Checkout gh-pages and deploy Allure Report
+        run: |
+          git checkout gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add allure
           git commit -m "Add allure-results to allure directory"
           git push origin gh-pages
