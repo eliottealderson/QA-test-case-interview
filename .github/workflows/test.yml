@@ -44,13 +44,33 @@ jobs:
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./projectDocs/site
-          publish_branch: docs
-      - name: Update README with new Mkdocs link
-        run: |
-          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/#(https://eliottealderson.github.io/QA-test-case-interview/' README.md
+          publish_branch: gh-pages
+          destination_dir: docs
+      - run: |
+          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/#(https://eliottealderson.github.io/QA-test-case-interview/docs#' README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update README with new Mkdocs link" -a
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'main'
+      - name: Post the link to the documentation
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.DEPLOY_TOKEN }}
+          context: 'Documentation'
+          state: 'success'
+          sha: ${{ github.sha }}
+          target_url: https://eliottealderson.github.io/QA-test-case-interview/docs
+      - name: Install nodemailer
+        run: npm install nodemailer
+      - name: Send email notification
+        run: node ./scripts/send_email_notification.mjs
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASS: ${{ secrets.SENDER_PASS }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
 
   deploy_allure:
     needs: build
@@ -72,10 +92,30 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./allure-report
-
-      - name: Update README with new Allure report link
-        run: |
-          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/allure)#(https://eliottealderson.github.io/QA-test-case-interview/allure)' README.md
+          publish_branch: gh-pages
+          destination_dir: allure
+      - run: |
+          sed -i 's#(https://eliottealderson.github.io/QA-test-case-interview/#(https://eliottealderson.github.io/QA-test-case-interview/allure#' README.md
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "Update README with new Allure report link" -a
+          git commit -m "Update README with new Allure link" -a
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'main'
+      - name: Post the link to the Allure report
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.DEPLOY_TOKEN }}
+          context: 'Allure Report'
+          state: 'success'
+          sha: ${{ github.sha }}
+          target_url: https://eliottealderson.github.io/QA-test-case-interview/allure
+      - name: Install nodemailer
+        run: npm install nodemailer
+      - name: Send email notification
+        run: node ./scripts/send_email_notification.mjs
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASS: ${{ secrets.SENDER_PASS }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
