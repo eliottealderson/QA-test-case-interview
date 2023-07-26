@@ -48,6 +48,11 @@ Cliquez sur l'url affichée dans le terminal (ressemble à : Serving on http://1
 
 ↪ Pour quitter, appuyez sur `<Ctrl+C>`.
 
+NOTE IMPORTANTE : https://eliottealderson.github.io/QA-test-case-interview/docs/about/
+Installez MkDocs si ce n'est pas déjà fait
+- Vérifiez si Python est installé : python --version ou python3 --version 
+- Installez Python si nécessaire 
+
 ### Exécuter les scripts checkDependencies.mjs et project-info.mjs
 
 Se placer dans le répertoire scripts avec `cd Heyteam/scripts` si vous rencontrez un message d'erreur.
