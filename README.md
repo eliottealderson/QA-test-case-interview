@@ -8,8 +8,8 @@ https://slender-marble-d2d.notion.site/Liste-de-contr-le-pour-les-tests-086fcd4a
 [![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg)](https://github.com/eliottealderson/QA-test-case-interview/actions)
 
 Consultez notre :
-- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docs)/docs/allure/allure
-- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/)/docs/allure/allure
+- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docs)/docs/allure/allure/docs
+- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/)/docs/allure/allure/docs
 
 ## Organisation des branches
 
