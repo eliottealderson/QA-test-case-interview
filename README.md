@@ -23,7 +23,7 @@ L'étape "Post the link to the report" est utilisée pour ajouter un lien vers l
 
 Pour voir ce lien, allez sur GitHub et trouvez le commit spécifique pour lequel le workflow a été exécuté. Sur la page de détails du commit, vous verrez une section "Checks" qui liste tous les workflows GitHub Actions exécutés pour ce commit.
 
-Pour chaque workflow, il y a un statut (qui peut être "success", "failure", ou "in progress") et un lien vers les détails du workflow. Si l'étape "Post the link to the report" a été exécutée avec succès, vous verrez un lien vers le rapport de test dans le statut du workflow. Ce lien est généralement affiché sous la forme d'un petit globe à côté du statut du workflow.
+Pour chaque workflow, il y a un statut (qui peut être "success", "failure", ou "in progress") et un lien vers les détails du workflow. Si l'étape "Post the link to the report" a été exécutée avec succès, vous verrez un lien vers le rapport de test dans le statut du workflow. Ce lien est généralement affiché sous la forme d'un petit globe ou d'une fusée à côté du statut du workflow.
 
 ## Prise en main rapide
 
