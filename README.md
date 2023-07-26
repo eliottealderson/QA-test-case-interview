@@ -8,8 +8,8 @@ https://slender-marble-d2d.notion.site/Liste-de-contr-le-pour-les-tests-086fcd4a
 [![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg)](https://github.com/eliottealderson/QA-test-case-interview/actions)
 
 Consultez notre :
-- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docs)/docs/allure/allure/docs/allure
-- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/)/docs/allure/allure/docs/allure
+- [Documentation ici](https://eliottealderson.github.io/QA-test-case-interview/docs)
+- [Rapports de test ici](https://eliottealderson.github.io/QA-test-case-interview/)
 
 ## Organisation des branches
 
@@ -89,7 +89,7 @@ Les badges au début de ce README vous fournissent des informations rapides sur 
 
 - Le badge ![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg) indique le statut du dernier workflow exécuté. Vous pouvez cliquer dessus pour accéder directement à la page des workflows GitHub Actions de ce répertoire.
 
-- Les liens suivants vous mènent respectivement à notre [documentation](https://eliottealderson.github.io/docs) et
+- Les liens suivants vous mènent respectivement à notre [documentation](https://eliottealderson.github.io/QA-test-case-interview/docs) et
 à nos [rapports de test](https://eliottealderson.github.io/QA-test-case-interview).
 <br> Ils vous permettent de consulter facilement les résultats détaillés de nos tests et la documentation à jour de notre projet.
 
