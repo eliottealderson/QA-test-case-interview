@@ -1,0 +1,14 @@
+2023-07-26 09:13:14 [INFO]: Navigating to https://openclassrooms.com/fr/login
+2023-07-26 09:13:14 [INFO]: Navigated to https://openclassrooms.com/fr/login
+2023-07-26 09:13:14 [undefined] info: Checking for popin...
+2023-07-26 09:13:25 [INFO]: Filling login form with email: julesvernie@gmx.fr
+2023-07-26 09:13:25 [INFO]: Filling login form with password: wQLB7TcSBhLfo
+2023-07-26 09:13:29 [INFO]: Submitting login form
+2023-07-26 09:13:44 [undefined] info: AfterEach block starting...
+2023-07-26 09:13:44 [undefined] info: Checking test status...
+2023-07-26 09:13:44 [undefined] info: AfterEach block completed
+2023-07-26 09:13:44 [undefined] error: An error occurred: page.click: Target closed
+=========================== logs ===========================
+waiting for locator('#invalidElement')
+============================================================
+2023-07-26 09:13:44 [undefined] error: Call stack:

@@ -1,0 +1,4 @@
+2023-07-26 09:13:29 [INFO]: Navigating to https://openclassrooms.com/fr/login
+2023-07-26 09:13:30 [INFO]: Navigated to https://openclassrooms.com/fr/login
+2023-07-26 09:13:30 [undefined] info: Checking for popin...
+2023-07-26 09:13:42 [INFO]: SignUp page is visible.

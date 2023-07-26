@@ -1,0 +1,4 @@
+2023-07-26 09:13:46 [INFO]: Navigating to https://openclassrooms.com/fr/login
+2023-07-26 09:13:46 [INFO]: Navigated to https://openclassrooms.com/fr/login
+2023-07-26 09:13:46 [undefined] info: Checking for popin...
+2023-07-26 09:13:59 [INFO]: Clicked on "Mot de passe oublié ?" link
