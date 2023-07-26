@@ -1,4 +1,9 @@
 # QA-test-case-interview
+L'approche se veut différente et implique la mise en place d'une stratégie de test globale, l'intégration de CI-CD, et l'implémentation d'un système de communication.
+Il a été envisagé un plan plus exhaustif et plus détaillé pour garantir la qualité . J'ai voulu voir au-delà de l'exécution des tests fonctionnels et viser à construire une stratégie de test complète.
+
+Pour autant vous retrouverez une liste de contrôle applicable à notre cas de test ci-dessous et qui pourraient faire l'objet d'un test : 
+https://slender-marble-d2d.notion.site/Liste-de-contr-le-pour-les-tests-086fcd4a4c0b4254a094410f3dc5315f
 
 [![Actions Status](https://github.com/eliottealderson/QA-test-case-interview/workflows/Manual%20trigger%20workflow/badge.svg)](https://github.com/eliottealderson/QA-test-case-interview/actions)
 
@@ -90,3 +95,5 @@ Les badges au début de ce README vous fournissent des informations rapides sur 
 
 Ces badges et liens vous permettent de suivre facilement l'état actuel de notre projet et de ses tests à chaque fois 
 que vous consultez ce README.
+
+
